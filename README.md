@@ -1,10 +1,10 @@
 # JobTredingAnalysis
 
-<a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
-    <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
-</a>
+## Dataset
 
-A short description of the project.
+- **Source**: LinkedIn Job Postings (2023 - 2024) by Arsh Koneru · Zoey Yu Zou
+- **License**: CC BY-SA 4.0
+- **Link**: [Dataset on Kaggle](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings?select=jobs)
 
 ## Project Organization
 
@@ -26,7 +26,7 @@ A short description of the project.
 │                         the creator's initials, and a short `-` delimited description, e.g.
 │                         `1.0-jqp-initial-data-exploration`.
 │
-├── pyproject.toml     <- Project configuration file with package metadata for 
+├── pyproject.toml     <- Project configuration file with package metadata for
 │                         data_analysis and configuration for tools like black
 │
 ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
@@ -49,13 +49,12 @@ A short description of the project.
     │
     ├── features.py             <- Code to create features for modeling
     │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
+    ├── modeling
+    │   ├── __init__.py
+    │   ├── predict.py          <- Code to run model inference with trained models
     │   └── train.py            <- Code to train models
     │
     └── plots.py                <- Code to create visualizations
 ```
 
---------
-
+---
