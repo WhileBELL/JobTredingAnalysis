@@ -4,7 +4,7 @@ from tqdm import tqdm
 import kaggle
 import pandas as pd
 
-from data_analysis.config import PROCESSED_DATA_DIR, RAW_DATA_DIR
+from data_analysis.config import PROCESSED_DATA_DIR, RAW_DATA_DIR, EXTERNAL_DATA_DIR
 
 
 class DataDownloader:
@@ -29,13 +29,22 @@ class DataDownloader:
 
 
 class DataClean:
-    def __init__(self, input_data: Path, output_data: Path):
-        self.inputdata = input_data
+    def __init__(self, external_input_data: Path, output_data: Path):
+        self.inputdata = external_input_data
         self.outputdata = output_data
 
-    def show_data(self, rows: int = 10):
+    def show_data_before(self, rows: int = 3):
         """Display the first few rows of a specified CSV file."""
         input_path = self.inputdata
+        try:
+            data = pd.read_csv(input_path)
+            print(data.head(rows))
+        except Exception as e:
+            logger.error(f"Failed to read data: {e}")
+
+    def show_data_after(self, filename: str, rows: int = 3):
+        """Display the first few rows of a specified CSV file."""
+        input_path = self.outputdata / filename
         try:
             data = pd.read_csv(input_path)
             print(data.head(rows))
@@ -52,12 +61,12 @@ if __name__ == "__main__":
         raw_data_dir=RAW_DATA_DIR,
         processed_data_dir=PROCESSED_DATA_DIR,
     )
-
     downloader.download_data()
 
     dataclean = DataClean(
-        input_data=RAW_DATA_DIR / "postings.csv",
+        external_input_data=EXTERNAL_DATA_DIR / "postings.csv",
         output_data=PROCESSED_DATA_DIR,
     )
+    dataclean.show_data_before()
 
-    dataclean.show_data()
+    dataclean.show_data_after()

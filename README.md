@@ -1,5 +1,7 @@
 # JobTredingAnalysis
 
+description.
+
 ## Dataset
 
 - **Source**: LinkedIn Job Postings (2023 - 2024) by Arsh Koneru · Zoey Yu Zou
